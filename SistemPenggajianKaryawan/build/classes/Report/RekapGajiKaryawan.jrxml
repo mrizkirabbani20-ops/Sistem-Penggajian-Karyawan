@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RekapGajiKaryawam" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="e115bc59-fd0f-446b-a585-04725e27d7f0">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SistemPenggajianKaryawan"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+    CONCAT(bulan, ' ', tahun) AS bulan,
+    SUM(total_gaji) AS total_gaji
+	FROM tb_penggajian
+	GROUP BY bulan, tahun
+	ORDER BY tahun,
+	FIELD(bulan,
+	'Januari',
+	'Februari',
+	'Maret',
+	'April',
+	'Mei',
+	'Juni',
+	'Juli',
+	'Agustus',
+	'September',
+	'Oktober',
+	'November',
+	'Desember');]]>
+	</queryString>
+	<field name="bulan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="bulan"/>
+		<property name="com.jaspersoft.studio.field.label" value="bulan"/>
+	</field>
+	<field name="total_gaji" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="total_gaji"/>
+		<property name="com.jaspersoft.studio.field.label" value="total_gaji"/>
+	</field>
+	<variable name="totalgaji" class="java.lang.String">
+		<variableExpression><![CDATA["Rp " + String.format("%,.0f", $F{total_gaji})]]></variableExpression>
+	</variable>
+	<background>
+		<band height="575" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="475" width="105" height="100" backcolor="#666666" uuid="6eb7cb61-0dd7-47a8-8475-5fa6c3a348dc"/>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-384" width="105" height="859" backcolor="#BFBFBF" uuid="1c88f1ec-87f0-4f72-acf5-2d9e04db3226"/>
+			</frame>
+		</band>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="802" height="67" uuid="1dcadd54-7d50-4470-85ed-189e4d910b25"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="48" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Report Rekap Gaji Karyawan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="232" y="67" width="568" height="37" uuid="862cb50c-5a5e-4906-a495-226e25115fb6"/>
+				<textElement textAlignment="Right">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Tabel dan Grafik Rekap Gaji Karyawan]]></text>
+			</staticText>
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-21" width="105" height="101" backcolor="#666666" uuid="4db5ae5f-195a-45a0-b6d1-7c251977a208"/>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="97" y="5" width="705" height="20" backcolor="#666666" uuid="35d90a9b-bb7e-4ec4-bfa2-68be1967d6b2"/>
+				<staticText>
+					<reportElement style="Column header" x="0" y="0" width="352" height="15" uuid="f0aaa9b3-6bb8-4bc9-99f0-ede460fd0201">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5e100ccc-22c3-4bd6-8a43-a4a1c30b8c2e"/>
+					</reportElement>
+					<text><![CDATA[Bulan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="352" y="0" width="352" height="15" uuid="b0e39c49-118f-4783-9986-fda95f4c597e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0e278632-b75a-44b7-ab47-79cbd227c02b"/>
+					</reportElement>
+					<text><![CDATA[Total Gaji]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement x="97" y="1" width="705" height="15" uuid="89a3da05-fdde-4ffe-965f-cc476f72e3ab"/>
+				<textField>
+					<reportElement style="Detail" x="0" y="0" width="352" height="15" uuid="b4cf94b1-8b3d-4da2-ae32-c578bf164887">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5e100ccc-22c3-4bd6-8a43-a4a1c30b8c2e"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{bulan}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="352" y="0" width="352" height="15" uuid="ea7aa8b3-c7fb-4052-be0d-7c4f5779c216">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0e278632-b75a-44b7-ab47-79cbd227c02b"/>
+					</reportElement>
+					<textFieldExpression><![CDATA["Rp " + String.format("%,.0f", $F{total_gaji})]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="97" y="16" width="705" height="1" uuid="e5f21b91-7f24-498e-97a1-0e93db9225a4"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="257" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<barChart>
+				<chart evaluationTime="Report">
+					<reportElement x="180" y="28" width="530" height="200" uuid="656f4e52-ed5c-47d3-b14a-418b15f199ce"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["Total Gaji"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{bulan}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{total_gaji}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="670" y="6" width="131" height="20" forecolor="#000000" uuid="95484ca0-40b4-4752-95d8-1afbc33c820b"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="95" y="6" width="114" height="20" uuid="0ec52099-dcd7-42f4-8baa-f3874f05208a"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Total Keseluruhan :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="209" y="6" width="100" height="20" uuid="ec1ff10d-4a43-418c-9d15-6aede97d6a52"/>
+				<textFieldExpression><![CDATA[$V{totalgaji}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="97" y="0" width="705" height="1" uuid="d5c6d05d-4262-47d3-a25b-2fb92ec3fb4a"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

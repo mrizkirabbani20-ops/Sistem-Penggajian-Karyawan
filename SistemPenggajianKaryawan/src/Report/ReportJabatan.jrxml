@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportJabatan" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="e115bc59-fd0f-446b-a585-04725e27d7f0">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[c2lzdGVtcGVuZ2dhamlhbmthcnlhd2FuLmphYmF0YW4gQVMgLDg1LDkxLDgxMTE4ZDI1LWYwNDEt
+NGU4Zi05OGNiLWYxZmRlYjY5OWQyZDs=]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SistemPenggajianKaryawan"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT id_jabatan,
+	nm_jabatan,
+	gaji_pokok
+FROM sistempenggajiankaryawan.jabatan]]>
+	</queryString>
+	<field name="id_jabatan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="id_jabatan"/>
+		<property name="com.jaspersoft.studio.field.label" value="id_jabatan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jabatan"/>
+	</field>
+	<field name="nm_jabatan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nm_jabatan"/>
+		<property name="com.jaspersoft.studio.field.label" value="nm_jabatan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jabatan"/>
+	</field>
+	<field name="gaji_pokok" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="gaji_pokok"/>
+		<property name="com.jaspersoft.studio.field.label" value="gaji_pokok"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jabatan"/>
+	</field>
+	<variable name="totaldata" class="java.lang.Integer">
+		<variableExpression><![CDATA[$V{REPORT_COUNT}]]></variableExpression>
+	</variable>
+	<background>
+		<band height="575" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="475" width="105" height="100" backcolor="#666666" uuid="6eb7cb61-0dd7-47a8-8475-5fa6c3a348dc"/>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-122" width="105" height="597" backcolor="#BFBFBF" uuid="11dfab32-ce8c-4ca2-be40-30c7389a6748"/>
+			</frame>
+		</band>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="802" height="67" uuid="1dcadd54-7d50-4470-85ed-189e4d910b25"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="54" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Data Jabatan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="232" y="67" width="568" height="37" uuid="862cb50c-5a5e-4906-a495-226e25115fb6"/>
+				<textElement textAlignment="Right">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Daftar Jabatan dan Gaji Pokok Karyawan]]></text>
+			</staticText>
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="105" height="100" backcolor="#666666" uuid="18e3e8f6-16a3-4b89-9cfc-fd3a6e2c41a6"/>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="97" y="5" width="705" height="20" backcolor="#666666" uuid="35d90a9b-bb7e-4ec4-bfa2-68be1967d6b2"/>
+				<staticText>
+					<reportElement style="Column header" x="0" y="0" width="235" height="15" uuid="04f344d2-bbda-4811-a496-0025f72b5c87">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="df79416d-802b-45cf-bab0-bda5729c74d3"/>
+					</reportElement>
+					<text><![CDATA[ID Jabatan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="235" y="0" width="235" height="15" uuid="214ae105-47d5-4225-bfb0-ded05b06f0da">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4b154469-7ff0-4da8-9928-3d25b810d725"/>
+					</reportElement>
+					<text><![CDATA[Nama Jabatan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="470" y="0" width="235" height="15" uuid="56d7c5af-1d4d-47b4-b701-d351a67eddd9">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8a59d123-de90-4c57-9d6a-1e62007b09b3"/>
+					</reportElement>
+					<text><![CDATA[Gaji Pokok]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement x="97" y="1" width="705" height="15" uuid="89a3da05-fdde-4ffe-965f-cc476f72e3ab"/>
+				<textField>
+					<reportElement style="Detail" x="0" y="0" width="235" height="15" uuid="cf3e659c-7c22-4a15-9348-16a9c365bdb8">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="df79416d-802b-45cf-bab0-bda5729c74d3"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{id_jabatan}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="235" y="0" width="235" height="15" uuid="151617c4-4619-4ee3-b5c6-5a6c46c3276b">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4b154469-7ff0-4da8-9928-3d25b810d725"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{nm_jabatan}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="470" y="0" width="235" height="15" uuid="85b0c840-a9b5-4108-829a-c47a745cc431">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8a59d123-de90-4c57-9d6a-1e62007b09b3"/>
+					</reportElement>
+					<textFieldExpression><![CDATA["Rp " + String.format("%,.0f", $F{gaji_pokok})]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="97" y="16" width="705" height="1" uuid="e5f21b91-7f24-498e-97a1-0e93db9225a4"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="40" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="671" y="7" width="131" height="20" forecolor="#000000" uuid="95484ca0-40b4-4752-95d8-1afbc33c820b"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="97" y="8" width="113" height="15" uuid="b7eba47e-92aa-4bd3-9505-93d36bb23f53"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Total Data Jabatan :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="210" y="8" width="100" height="15" uuid="721b6a92-cdff-4f54-9be5-14c22b82bd04"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$V{totaldata}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="97" y="0" width="705" height="1" uuid="65d72579-aaf0-4dfc-a9e9-5101ed8a1c49"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportGajiKaryawan" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="e115bc59-fd0f-446b-a585-04725e27d7f0">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[c2lzdGVtcGVuZ2dhamlhbmthcnlhd2FuLnRiX3BlbmdnYWppYW4gQVMgLDk4LDM5LDk3ZmU5Y2E4
+LTEzOWEtNDcwNS05YWU1LWYwYmM2OTYxYzZlNDtzaXN0ZW1wZW5nZ2FqaWFua2FyeWF3YW4ua2Fy
+eWF3YW4gQVMgLDQyOCwzOCw2MzgxNjhlMy05YzJiLTRiMDctOTZkOS02MDAxNTljZjQ1Y2M7c2lz
+dGVtcGVuZ2dhamlhbmthcnlhd2FuLmphYmF0YW4gQVMgLDU4NiwzNyxlNDk4Y2JiOC01ZjM5LTRh
+ZTMtYWFlOC0zNDBkZGU0YThlOGM7c2lzdGVtcGVuZ2dhamlhbmthcnlhd2FuLnR1bmphbmdhbiBB
+UyAsNDI3LDI3MyxlMzRiNzU4MS1iM2I3LTRiZTMtODE4NS0xOThhYTFkMWI4NGU7c2lzdGVtcGVu
+Z2dhamlhbmthcnlhd2FuLnRiX3BvdG9uZ2FuIEFTICwyNTYsNDQ2LDVjMGUyNjI5LTQ3NTktNGM3
+Ny1hZDQ5LTUxMGQ5YTNmOWMwMzs=]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SistemPenggajianKaryawan"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT sistempenggajiankaryawan.tb_penggajian.id_gaji,
+	sistempenggajiankaryawan.tb_penggajian.id_karyawan,
+	sistempenggajiankaryawan.jabatan.nm_jabatan,
+	sistempenggajiankaryawan.karyawan.nm_karyawan,
+	sistempenggajiankaryawan.tb_penggajian.bulan,
+	sistempenggajiankaryawan.tb_penggajian.tahun,
+	sistempenggajiankaryawan.tb_penggajian.tanggal_gaji,
+	sistempenggajiankaryawan.tb_penggajian.gaji_pokok,
+	sistempenggajiankaryawan.tb_penggajian.tunjangan,
+	sistempenggajiankaryawan.tb_penggajian.potongan,
+	sistempenggajiankaryawan.tb_penggajian.total_gaji
+FROM sistempenggajiankaryawan.tb_penggajian
+	INNER JOIN sistempenggajiankaryawan.karyawan ON 
+	 sistempenggajiankaryawan.tb_penggajian.id_karyawan = sistempenggajiankaryawan.karyawan.id_karyawan 
+	INNER JOIN sistempenggajiankaryawan.jabatan ON 
+	 sistempenggajiankaryawan.karyawan.id_jabatan = sistempenggajiankaryawan.jabatan.id_jabatan 
+	LEFT JOIN sistempenggajiankaryawan.tunjangan ON 
+	 sistempenggajiankaryawan.tb_penggajian.id_tunjangan = sistempenggajiankaryawan.tunjangan.id_tunjangan 
+	LEFT JOIN sistempenggajiankaryawan.tb_potongan ON 
+	 sistempenggajiankaryawan.tb_penggajian.id_potongan = sistempenggajiankaryawan.tb_potongan.id_potongan
+	ORDER BY sistempenggajiankaryawan.tb_penggajian.id_gaji ASC;]]>
+	</queryString>
+	<field name="id_gaji" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="id_gaji"/>
+		<property name="com.jaspersoft.studio.field.label" value="id_gaji"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_penggajian"/>
+	</field>
+	<field name="id_karyawan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="id_karyawan"/>
+		<property name="com.jaspersoft.studio.field.label" value="id_karyawan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_penggajian"/>
+	</field>
+	<field name="nm_jabatan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nm_jabatan"/>
+		<property name="com.jaspersoft.studio.field.label" value="nm_jabatan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jabatan"/>
+	</field>
+	<field name="nm_karyawan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nm_karyawan"/>
+		<property name="com.jaspersoft.studio.field.label" value="nm_karyawan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="karyawan"/>
+	</field>
+	<field name="bulan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="bulan"/>
+		<property name="com.jaspersoft.studio.field.label" value="bulan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_penggajian"/>
+	</field>
+	<field name="tahun" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="tahun"/>
+		<property name="com.jaspersoft.studio.field.label" value="tahun"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_penggajian"/>
+	</field>
+	<field name="tanggal_gaji" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="tanggal_gaji"/>
+		<property name="com.jaspersoft.studio.field.label" value="tanggal_gaji"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_penggajian"/>
+	</field>
+	<field name="gaji_pokok" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="gaji_pokok"/>
+		<property name="com.jaspersoft.studio.field.label" value="gaji_pokok"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_penggajian"/>
+	</field>
+	<field name="tunjangan" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="tunjangan"/>
+		<property name="com.jaspersoft.studio.field.label" value="tunjangan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_penggajian"/>
+	</field>
+	<field name="potongan" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="potongan"/>
+		<property name="com.jaspersoft.studio.field.label" value="potongan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_penggajian"/>
+	</field>
+	<field name="total_gaji" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="total_gaji"/>
+		<property name="com.jaspersoft.studio.field.label" value="total_gaji"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_penggajian"/>
+	</field>
+	<variable name="totaldata" class="java.lang.Integer">
+		<variableExpression><![CDATA[$V{REPORT_COUNT}]]></variableExpression>
+	</variable>
+	<background>
+		<band height="575" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="475" width="105" height="100" backcolor="#666666" uuid="6eb7cb61-0dd7-47a8-8475-5fa6c3a348dc"/>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-122" width="105" height="597" backcolor="#BFBFBF" uuid="cd4ddbf1-253b-4cf5-8e55-fc684f9308da"/>
+			</frame>
+		</band>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="802" height="67" uuid="1dcadd54-7d50-4470-85ed-189e4d910b25"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="54" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Gaji Karyawan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="232" y="67" width="568" height="37" uuid="862cb50c-5a5e-4906-a495-226e25115fb6"/>
+				<textElement textAlignment="Right">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Daftar Total Gaji Karyawan]]></text>
+			</staticText>
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-21" width="105" height="101" backcolor="#666666" uuid="6651d93b-64a9-42e6-a9a5-a7ecd51688ca"/>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="97" y="5" width="705" height="20" backcolor="#666666" uuid="35d90a9b-bb7e-4ec4-bfa2-68be1967d6b2"/>
+				<staticText>
+					<reportElement style="Column header" x="0" y="0" width="64" height="15" uuid="d99cb3e7-1015-4740-9c05-23462e4353f8">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e769777f-fa3c-405d-8e42-30423d0381ca"/>
+					</reportElement>
+					<text><![CDATA[ID Gaji]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="64" y="0" width="76" height="15" uuid="7944ac96-00a3-4533-98ae-589f5cd0b9d2">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="02123f0b-e760-42a4-a760-e036360d7ca0"/>
+					</reportElement>
+					<text><![CDATA[ID Karyawan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="250" y="0" width="90" height="15" uuid="20269cc6-d60f-4778-82a9-80235a4402e6">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="65dac9ad-ad8a-43ad-8cfe-337693729e52"/>
+					</reportElement>
+					<text><![CDATA[Jabatan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="145" y="0" width="100" height="15" uuid="67bf5588-f750-4b07-8990-28083597e9e0">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5d3cfc22-b0c6-4993-a20a-669229d6e6fa"/>
+					</reportElement>
+					<text><![CDATA[Nama Karyawan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="350" y="0" width="64" height="15" uuid="9ab8b3cd-7df4-4c96-a708-4bcf1621095d">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e194e6f0-83ea-4ff8-b6e8-c3d88e63374e"/>
+					</reportElement>
+					<text><![CDATA[Gaji Pokok]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="440" y="0" width="64" height="15" uuid="8fc7a3de-5587-4939-8b80-c242a9a23385">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="49b797a6-285b-4252-af51-4004eb667275"/>
+					</reportElement>
+					<text><![CDATA[Tunjangan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="530" y="0" width="64" height="15" uuid="e6b5c6cb-ef4e-4fe9-8e54-3bd29a78690a">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d59a1e2b-8f3d-4357-b08e-28478acf24be"/>
+					</reportElement>
+					<text><![CDATA[Potongan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="620" y="0" width="64" height="15" uuid="903f9dc1-757b-41d9-883a-10926f6effcc">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b2794686-02a4-41f7-9175-c782a37ea4c2"/>
+					</reportElement>
+					<text><![CDATA[Total Gaji]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement x="97" y="1" width="705" height="15" uuid="89a3da05-fdde-4ffe-965f-cc476f72e3ab"/>
+				<textField>
+					<reportElement style="Detail" x="0" y="0" width="64" height="15" uuid="4425c0a7-d027-405b-8ef2-1f433a52390f">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e769777f-fa3c-405d-8e42-30423d0381ca"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{id_gaji}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="64" y="0" width="76" height="15" uuid="ab316ec9-4326-4239-bf49-4166466c01de">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="02123f0b-e760-42a4-a760-e036360d7ca0"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{id_karyawan}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="250" y="-1" width="90" height="15" uuid="958ccbce-dd49-40c7-ab2b-4b037841f4f2">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="65dac9ad-ad8a-43ad-8cfe-337693729e52"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{nm_jabatan}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="145" y="-1" width="100" height="15" uuid="7e3721f2-42dd-48f3-813f-dcbbe873658b">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5d3cfc22-b0c6-4993-a20a-669229d6e6fa"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{nm_karyawan}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="350" y="0" width="80" height="15" uuid="dc51ab81-b4d6-4a6e-ac0f-0d9bed6ea74e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e194e6f0-83ea-4ff8-b6e8-c3d88e63374e"/>
+					</reportElement>
+					<textFieldExpression><![CDATA["Rp " + String.format("%,.0f", $F{gaji_pokok})]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="440" y="0" width="80" height="15" uuid="17fa3842-8e41-4daa-bf4b-2189cc89b829">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="49b797a6-285b-4252-af51-4004eb667275"/>
+					</reportElement>
+					<textFieldExpression><![CDATA["Rp " + String.format("%,.0f", $F{tunjangan})]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="530" y="0" width="80" height="15" uuid="92d4ab52-19a8-42f4-adf1-25dd31dbad3f">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d59a1e2b-8f3d-4357-b08e-28478acf24be"/>
+					</reportElement>
+					<textFieldExpression><![CDATA["Rp " + String.format("%,.0f", $F{potongan})]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="620" y="0" width="83" height="15" uuid="fe9fbcd0-1cb6-4d0b-8584-9cba27b43d8b">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b2794686-02a4-41f7-9175-c782a37ea4c2"/>
+					</reportElement>
+					<textFieldExpression><![CDATA["Rp " + String.format("%,.0f", $F{total_gaji})]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="671" y="6" width="131" height="20" forecolor="#000000" uuid="95484ca0-40b4-4752-95d8-1afbc33c820b"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="96" y="6" width="136" height="20" uuid="0ec52099-dcd7-42f4-8baa-f3874f05208a"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Total Data Penggajian :]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="97" y="0" width="705" height="1" uuid="e5f21b91-7f24-498e-97a1-0e93db9225a4"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="232" y="9" width="100" height="15" uuid="1f80f6fb-0a70-4a3b-af2c-fcc6fb89de8b"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$V{totaldata}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
