@@ -194,6 +194,9 @@ src
 
 # ⚙ Instalasi
 
+- **Java Development Kit (JDK) 17+** - [Download](https://www.oracle.com/java/technologies/downloads/#java17)
+- **Jaspersoft Studio 6.20.6** - [Download](https://jaspersoft-studio.freedownloadscenter.com/windows/)
+
 ## 1. Clone Project
 
 ```
