@@ -298,7 +298,7 @@ Total Gaji    : Rp6.300.000
 
 # 👨‍💻 Author
 
-Nama : **Muhammad Rizki Rabbani dan Kelompok 4**
+Nama : **Kelompok 4**
 
 Program Studi : **Teknik Informatika**
 
